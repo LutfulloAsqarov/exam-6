@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    &__list {
+        display: flex;
+        gap: 40px;
+    }
+
+    &__icons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        span {
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}

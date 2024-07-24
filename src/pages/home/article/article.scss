@@ -1,0 +1,28 @@
+.article {
+    padding: 80px 0 0;
+    h2 {
+        padding-bottom: 30px;
+    }
+    &__cards {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    &__card {
+        &__img {
+            img {
+                width: 100%;
+            }
+        }
+        &__info {
+            h3 {
+                padding: 10px 0;
+            }
+            a {
+                padding: 3px 0;
+                border-bottom: 1px solid #000;
+            }
+        }
+    }
+}
