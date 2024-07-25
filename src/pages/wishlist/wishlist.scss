@@ -1,0 +1,11 @@
+.wishlist {
+    padding: 40px 0;
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 24px;
+        .products__card {
+            width: 100%;
+        }
+    }
+}

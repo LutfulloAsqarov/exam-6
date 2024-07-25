@@ -4,6 +4,7 @@ import { useGetProductByIdQuery } from "../../context/api/productApi";
 import "./singleProduct.scss";
 import { FaStar } from "react-icons/fa";
 import singleImg from "../../assets/single.svg";
+import Newsletter from "../home/newsletter/Newsletter";
 
 const SingleProduct = () => {
     const [inx, setInx] = useState(0);
@@ -268,6 +269,7 @@ const SingleProduct = () => {
                     </div>
                 </div>
             </div>
+            <Newsletter />
         </div>
     );
 };

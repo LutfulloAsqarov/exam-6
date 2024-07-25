@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
+import { CiHeart } from "react-icons/ci";
 import "./header.scss";
 
 const Header = () => {
+    let { pathname } = useLocation();
+
     const [showInput, setShowInput] = useState(false);
+    if (pathname.includes("register") || pathname.includes("admin")) {
+        return <></>;
+    }
     return (
         <>
             <header id="header">
@@ -65,10 +71,19 @@ const Header = () => {
                                     {showInput ? <IoMdClose /> : <CiSearch />}
                                 </li>
                                 <li>
-                                    <CiUser />
+                                    <Link to={"/admin/manageProduct"}>
+                                        <CiUser />
+                                    </Link>
                                 </li>
                                 <li>
-                                    <CiShoppingCart />
+                                    <Link to={"/order/cart"}>
+                                        <CiShoppingCart />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={"/wishlist"}>
+                                        <CiHeart />
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

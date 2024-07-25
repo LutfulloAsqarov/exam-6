@@ -1,12 +1,17 @@
 import React from "react";
 import footerLogo from "../../assets/footer-logo.svg";
 import "./footer.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
+    let { pathname } = useLocation();
+
+    if (pathname.includes("register") || pathname.includes("admin")) {
+        return <></>;
+    }
     return (
         <footer id="footer">
             <div className="container">
