@@ -159,5 +159,55 @@
                 // border-bottom: 3px solid red;
             }
         }
+        &__review {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            p {
+                font-size: 28px;
+                font-weight: 500;
+                line-height: 34px;
+                letter-spacing: -0.6000000238418579px;
+                text-align: left;
+            }
+            select {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 26px;
+                text-align: left;
+                padding: 8px 10px;
+            }
+        }
+        &__reviewer {
+            display: flex;
+            align-items: start;
+            gap: 30px;
+            border-bottom: 1px solid #ddd;
+            padding: 30px 0;
+            &__info {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            &__btns {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+            }
+        }
+        &__load {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 28px;
+            letter-spacing: -0.4000000059604645px;
+            text-align: center;
+            padding: 6px 0;
+            border: 1px solid #000;
+            border-radius: 30px;
+            width: 120px;
+            margin: 30px auto;
+            display: block;
+        }
     }
 }

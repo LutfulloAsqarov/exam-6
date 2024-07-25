@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../context/api/productApi";
 import "./singleProduct.scss";
 import { FaStar } from "react-icons/fa";
+import singleImg from "../../assets/single.svg";
 
 const SingleProduct = () => {
     const [inx, setInx] = useState(0);
@@ -92,6 +93,178 @@ const SingleProduct = () => {
                             <button>Reviews</button>
                             <button>Another tab</button>
                         </div>
+                        <div className="single__bot__review">
+                            <p>11 Reviews</p>
+                            <select name="" id="">
+                                <option value="">Newest</option>
+                                <option value="">Oldest</option>
+                            </select>
+                        </div>
+                        <div className="single__bot__reviewers">
+                            <div className="single__bot__reviewer">
+                                <img src={singleImg} alt="" />
+                                <div className="single__bot__reviewer__info">
+                                    <h3>Sofia Harvetz</h3>
+                                    <div>
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                    </div>
+                                    <p>
+                                        I bought it 3 weeks ago and now come
+                                        back just to say “Awesome Product”. I
+                                        really enjoy it. At vero eos et
+                                        accusamus et iusto odio dignissimos
+                                        ducimus qui blanditiis praesentium
+                                        voluptatum deleniti atque corrupt et
+                                        quas molestias excepturi sint non
+                                        provident.
+                                    </p>
+                                    <div className="single__bot__reviewer__btns">
+                                        <button>Like</button>
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single__bot__reviewer">
+                                <img src={singleImg} alt="" />
+                                <div className="single__bot__reviewer__info">
+                                    <h3>Sofia Harvetz</h3>
+                                    <div>
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                    </div>
+                                    <p>
+                                        I bought it 3 weeks ago and now come
+                                        back just to say “Awesome Product”. I
+                                        really enjoy it. At vero eos et
+                                        accusamus et iusto odio dignissimos
+                                        ducimus qui blanditiis praesentium
+                                        voluptatum deleniti atque corrupt et
+                                        quas molestias excepturi sint non
+                                        provident.
+                                    </p>
+                                    <div className="single__bot__reviewer__btns">
+                                        <button>Like</button>
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single__bot__reviewer">
+                                <img src={singleImg} alt="" />
+                                <div className="single__bot__reviewer__info">
+                                    <h3>Sofia Harvetz</h3>
+                                    <div>
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                    </div>
+                                    <p>
+                                        I bought it 3 weeks ago and now come
+                                        back just to say “Awesome Product”. I
+                                        really enjoy it. At vero eos et
+                                        accusamus et iusto odio dignissimos
+                                        ducimus qui blanditiis praesentium
+                                        voluptatum deleniti atque corrupt et
+                                        quas molestias excepturi sint non
+                                        provident.
+                                    </p>
+                                    <div className="single__bot__reviewer__btns">
+                                        <button>Like</button>
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single__bot__reviewer">
+                                <img src={singleImg} alt="" />
+                                <div className="single__bot__reviewer__info">
+                                    <h3>Sofia Harvetz</h3>
+                                    <div>
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                    </div>
+                                    <p>
+                                        I bought it 3 weeks ago and now come
+                                        back just to say “Awesome Product”. I
+                                        really enjoy it. At vero eos et
+                                        accusamus et iusto odio dignissimos
+                                        ducimus qui blanditiis praesentium
+                                        voluptatum deleniti atque corrupt et
+                                        quas molestias excepturi sint non
+                                        provident.
+                                    </p>
+                                    <div className="single__bot__reviewer__btns">
+                                        <button>Like</button>
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single__bot__reviewer">
+                                <img src={singleImg} alt="" />
+                                <div className="single__bot__reviewer__info">
+                                    <h3>Sofia Harvetz</h3>
+                                    <div>
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                    </div>
+                                    <p>
+                                        I bought it 3 weeks ago and now come
+                                        back just to say “Awesome Product”. I
+                                        really enjoy it. At vero eos et
+                                        accusamus et iusto odio dignissimos
+                                        ducimus qui blanditiis praesentium
+                                        voluptatum deleniti atque corrupt et
+                                        quas molestias excepturi sint non
+                                        provident.
+                                    </p>
+                                    <div className="single__bot__reviewer__btns">
+                                        <button>Like</button>
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single__bot__reviewer">
+                                <img src={singleImg} alt="" />
+                                <div className="single__bot__reviewer__info">
+                                    <h3>Sofia Harvetz</h3>
+                                    <div>
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                        <FaStar />
+                                    </div>
+                                    <p>
+                                        I bought it 3 weeks ago and now come
+                                        back just to say “Awesome Product”. I
+                                        really enjoy it. At vero eos et
+                                        accusamus et iusto odio dignissimos
+                                        ducimus qui blanditiis praesentium
+                                        voluptatum deleniti atque corrupt et
+                                        quas molestias excepturi sint non
+                                        provident.
+                                    </p>
+                                    <div className="single__bot__reviewer__btns">
+                                        <button>Like</button>
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button className="single__bot__load">Load more</button>
                     </div>
                 </div>
             </div>
