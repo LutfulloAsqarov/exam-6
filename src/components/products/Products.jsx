@@ -1,12 +1,15 @@
 import React from "react";
 import "./products.scss";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Products = ({ data }) => {
     return (
         <div className="products__card">
             <div className="products__card__img">
-                <img src={data.images[0]} alt="img" />
+                <Link to={`products/${data.id}`}>
+                    <img src={data.images[0]} alt="img" />
+                </Link>
             </div>
             <div className="products__card__info">
                 <div className="products__card__star">

@@ -1,0 +1,163 @@
+.single {
+    padding: 40px 0;
+    &__top {
+        display: flex;
+        align-items: start;
+        gap: 50px;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        &__left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+        &__main-img {
+            // width: 100%;
+            height: 500px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &__images {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            // display: grid;
+            gap: 9px;
+
+            span {
+                width: calc(33.3% - 6px);
+                cursor: pointer;
+                // border: 1px solid red;
+                // height: 150px;
+                img {
+                    // box-shadow: 0 0 10px #ddd;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        &__right {
+            width: 50%;
+        }
+        &__info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        &__price {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 34px;
+            letter-spacing: -0.6000000238418579px;
+            text-align: left;
+            color: #121212;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            span {
+                color: #6c7275;
+                text-decoration: line-through;
+                font-size: 24px;
+            }
+        }
+        &__stars {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+        &__time {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 24px 0;
+            border-bottom: 1px solid #e8ecef;
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+                    span {
+                        font-size: 34px;
+                        font-weight: 500;
+                        line-height: 38px;
+                        letter-spacing: -0.6000000238418579px;
+                        padding: 10px;
+                        background: #f3f5f7;
+                        width: 60px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        &__btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px 0;
+            // border-bottom: 1px solid #ddd;
+        }
+        &__counter {
+            padding: 10px;
+            background: #f6f7f8;
+            border-radius: 5px;
+            font-size: 18px;
+            button {
+                padding: 0 15px;
+                font-size: 18px;
+                border: none;
+                color: #33a0ff;
+            }
+        }
+        &__wishlist {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            // font-size: 18px;
+            border: 1px solid #000;
+        }
+        &__cart {
+            width: 100%;
+            padding: 10px;
+            background: #000;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        &__category {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px 0;
+            // border-bottom: 1px solid #ddd;
+            p {
+                display: flex;
+                gap: 30px;
+            }
+        }
+    }
+    &__bot {
+        &__up-tab {
+            display: flex;
+            gap: 50px;
+            padding: 0 30px;
+            border-bottom: 3px solid #ddd;
+            button {
+                border: none;
+                padding: 30px 0;
+                font-size: 16px;
+                // border-bottom: 3px solid red;
+            }
+        }
+    }
+}

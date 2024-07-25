@@ -3,20 +3,66 @@
     justify-content: space-between;
     align-items: center;
     padding: 18px 0;
+
+    &__logo {
+        a {
+            img {
+                height: 100%;
+                object-position: center;
+            }
+        }
+    }
+
     &__list {
         display: flex;
+        align-items: center;
         gap: 40px;
+        &__item {
+            a {
+                color: #6c7275;
+                font-weight: 500;
+                &:hover {
+                    color: #141718;
+                }
+            }
+            .active {
+                color: #141718;
+            }
+        }
     }
 
     &__icons {
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 16px;
-        span {
-            svg {
-                width: 24px;
-                height: 24px;
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .show {
+            width: 800px;
+            opacity: 1;
+            transition: 0.3s;
+        }
+        form {
+            position: absolute;
+            right: 120px;
+            width: 0;
+            opacity: 0;
+            transition: 0.3s;
+            input {
+                width: 100%;
+                padding: 8px 10px;
+                border-radius: 5px;
+                outline: none;
+                border: 1px solid #c9c6c6;
+                // width: 0;
             }
+        }
+        svg {
+            font-size: 24px;
+            cursor: pointer;
         }
     }
 }

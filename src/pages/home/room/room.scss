@@ -56,18 +56,19 @@
     @media (max-width: 768px) {
         &__cards {
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: 400px 200px 200px;
             height: auto;
         }
         &__card {
             padding: 20px;
-            height: 400px;
+            // height: 400px;
             background-size: contain;
         }
         &__card:first-child {
             justify-content: flex-start;
             grid-column: auto;
             grid-row: auto;
+            height: 400px;
         }
         &__card:nth-child(2) {
             justify-content: flex-start;

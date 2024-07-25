@@ -5,7 +5,7 @@ import { HiOutlineMail } from "react-icons/hi";
 const Newsletter = () => {
     return (
         <section id="newsletter">
-            <div className="big-container">
+            <div>
                 <div className="newsletter">
                     <h2 className="title">Join Our Newsletter</h2>
                     <p>Sign up for deals, new products and promotions</p>

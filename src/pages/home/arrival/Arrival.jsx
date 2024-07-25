@@ -10,7 +10,7 @@ const Arrival = () => {
             <div className="container">
                 <div className="products">
                     <div className="products__cards">
-                        {data?.slice(0, 10).map((el) => (
+                        {data?.slice(1, 11).map((el) => (
                             <Products data={el} key={el.id} />
                         ))}
                     </div>
