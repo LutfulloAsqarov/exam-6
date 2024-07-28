@@ -16,9 +16,6 @@ const CreateCategory = () => {
     const { data: categoryData } = useGetCategoriesQuery();
     const { formData, handleChange } = useGetValue(initialState);
 
-    console.log(formData);
-    console.log(categoryData);
-
     useEffect(() => {
         if (isSuccess) {
             toast.success("Category Yaratildi");

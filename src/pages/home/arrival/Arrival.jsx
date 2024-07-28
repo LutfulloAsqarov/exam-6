@@ -3,10 +3,11 @@ import { useGetProductsQuery } from "../../../context/api/productApi";
 import Products from "../../../components/products/Products";
 import "./arrival.scss";
 import { useGetCategoriesQuery } from "../../../context/api/categoryApi";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Arrival = () => {
     const [categoryValue, setCategoryValue] = useState("all");
-    let { data } = useGetProductsQuery({
+    let { data, isFetching, isLoading } = useGetProductsQuery({
         page: 1,
         limit: 10,
         category: categoryValue === "all" ? "" : categoryValue,
@@ -52,11 +53,26 @@ const Arrival = () => {
                             </li>
                         ))}
                     </ul>
-                    <div className="products__cards">
-                        {data?.map((el) => (
-                            <Products data={el} key={el.id} />
-                        ))}
-                    </div>
+                    {isLoading || isFetching ? (
+                        <div
+                            style={{
+                                height: "300px",
+                                width: "100%",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontSize: "40px",
+                            }}
+                        >
+                            <AiOutlineLoading3Quarters />
+                        </div>
+                    ) : (
+                        <div className="products__cards">
+                            {data?.map((el) => (
+                                <Products data={el} key={el.id} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

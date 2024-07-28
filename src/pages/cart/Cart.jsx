@@ -177,11 +177,6 @@ const Cart = () => {
                         </div>
                     </div>
                     <div className="cart__shopping"></div>
-                    {/* {openModal ? (
-                        <CartModal setOpenModal={setOpenModal} />
-                    ) : (
-                        <></>
-                    )} */}
                 </div>
             ) : (
                 <div

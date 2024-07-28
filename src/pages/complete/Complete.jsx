@@ -1,9 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./complete.scss";
+import { useNavigate } from "react-router-dom";
+import { deleteAllCart } from "../../context/slices/cartSlice";
 
 const Complete = () => {
     const cartData = useSelector((state) => state.cart.value);
+    let navigate = useNavigate();
+    let dispatch = useDispatch();
     console.log(cartData);
     let completeItems = cartData?.map((el) => (
         <div className="complete__card" key={el.id}>
@@ -34,7 +38,15 @@ const Complete = () => {
                             <li>Credit Card</li>
                         </ul>
                     </div>
-                    <button>Go Cart</button>
+                    <button
+                        onClick={() => {
+                            localStorage.removeItem("cart");
+                            dispatch(deleteAllCart());
+                            navigate("/order/cart");
+                        }}
+                    >
+                        Go Cart
+                    </button>
                 </div>
             </div>
         </div>

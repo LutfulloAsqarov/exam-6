@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./createProduct.scss";
 import { useCreateProductMutation } from "../../../context/api/productApi";
 import { useGetValue } from "../../../hooks/useGetValue";
 import { useGetCategoriesQuery } from "../../../context/api/categoryApi";
+import { toast } from "react-toastify";
 
 const initialState = {
     title: "",
@@ -13,20 +14,25 @@ const initialState = {
 };
 
 const CreateProduct = () => {
-    const [createProduct] = useCreateProductMutation();
+    const [createProduct, { isSuccess }] = useCreateProductMutation();
     const { data: categoryData } = useGetCategoriesQuery();
     const { formData, handleChange } = useGetValue(initialState);
+
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success("Product Yaratildi");
+            formData.title = "";
+            formData.price = "";
+            formData.category = "";
+            formData.description = "";
+            formData.images = "";
+        }
+    }, [isSuccess]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         createProduct(formData);
-
-        // formData.title = "";
-        // formData.price = "";
-        // formData.category = "";
-        // formData.description = "";
-        // formData.images = "";
     };
 
     let categoryItems = categoryData?.map((el) => (
