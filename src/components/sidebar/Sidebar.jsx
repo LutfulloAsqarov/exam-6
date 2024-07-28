@@ -13,26 +13,52 @@ const Sidebar = () => {
     };
     return (
         <div className="sidebar">
-            <h2 className="sidebar__logo">
-                <Link to={"/"}>
-                    <FaArrowAltCircleLeft />
-                </Link>
-                <span>Dashboard</span>
-            </h2>
-            <ul className="sidebar__collection">
-                <li className="sidebar__item">
-                    <NavLink className={"sidebar__link"} to={"createProduct"}>
-                        <IoCreateOutline />
-                        <span>Create Product</span>
-                    </NavLink>
-                </li>
-                <li className="sidebar__item">
-                    <NavLink className={"sidebar__link"} to={"manageProduct"}>
-                        <IoCreateOutline />
-                        <span>Manage Product</span>
-                    </NavLink>
-                </li>
-            </ul>
+            <div className="sidebar__top">
+                <h2 className="sidebar__logo">
+                    <Link to={"/"}>
+                        <FaArrowAltCircleLeft />
+                    </Link>
+                    <span>Dashboard</span>
+                </h2>
+                <ul className="sidebar__collection">
+                    <li className="sidebar__item">
+                        <NavLink
+                            className={"sidebar__link"}
+                            to={"createProduct"}
+                        >
+                            <IoCreateOutline />
+                            <span>Create Product</span>
+                        </NavLink>
+                    </li>
+                    <li className="sidebar__item">
+                        <NavLink
+                            className={"sidebar__link"}
+                            to={"manageProduct"}
+                        >
+                            <IoCreateOutline />
+                            <span>Manage Product</span>
+                        </NavLink>
+                    </li>
+                    <li className="sidebar__item">
+                        <NavLink
+                            className={"sidebar__link"}
+                            to={"CreateCategory"}
+                        >
+                            <IoCreateOutline />
+                            <span>Create Category</span>
+                        </NavLink>
+                    </li>
+                    <li className="sidebar__item">
+                        <NavLink
+                            className={"sidebar__link"}
+                            to={"manageCategory"}
+                        >
+                            <IoCreateOutline />
+                            <span>Manage Category</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
             <button className="sidebar__btn" onClick={handleLogOut}>
                 Log out
             </button>

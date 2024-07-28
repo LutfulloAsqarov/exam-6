@@ -11,18 +11,38 @@
     }
     &__card {
         &__img {
+            width: 100%;
             img {
                 width: 100%;
             }
         }
         &__info {
             h3 {
-                padding: 10px 0;
+                margin: 10px 0;
+                display: -webkit-box;
+                line-clamp: 1;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
             }
             a {
                 padding: 3px 0;
                 border-bottom: 1px solid #000;
             }
+        }
+    }
+    @media (max-width: 850px) {
+        &__cards {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        &__card {
+            width: calc(50% - 10px);
+        }
+    }
+    @media (max-width: 450px) {
+        &__card {
+            width: 100%;
         }
     }
 }

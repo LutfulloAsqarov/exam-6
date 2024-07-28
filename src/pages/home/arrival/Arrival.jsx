@@ -4,13 +4,13 @@ import Products from "../../../components/products/Products";
 import "./arrival.scss";
 
 const Arrival = () => {
-    let { data } = useGetProductsQuery();
+    let { data } = useGetProductsQuery({ page: 1, limit: 10 });
     return (
         <section id="products">
             <div className="container">
                 <div className="products">
                     <div className="products__cards">
-                        {data?.slice(1, 11).map((el) => (
+                        {data?.map((el) => (
                             <Products data={el} key={el.id} />
                         ))}
                     </div>

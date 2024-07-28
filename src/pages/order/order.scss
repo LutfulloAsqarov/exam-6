@@ -1,0 +1,22 @@
+.upTab {
+    .active {
+        color: #23262f;
+        border-bottom-color: #23262f;
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding-top: 40px;
+        &__item {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 26px;
+            text-align: left;
+            color: #b1b5c3;
+            border-bottom: 2px solid #b1b5c3;
+            padding: 10px 0;
+        }
+    }
+}

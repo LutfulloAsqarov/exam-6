@@ -2,6 +2,7 @@ import React from "react";
 import "./createProduct.scss";
 import { useCreateProductMutation } from "../../../context/api/productApi";
 import { useGetValue } from "../../../hooks/useGetValue";
+import { useGetCategoriesQuery } from "../../../context/api/categoryApi";
 
 const initialState = {
     title: "",
@@ -13,13 +14,26 @@ const initialState = {
 
 const CreateProduct = () => {
     const [createProduct] = useCreateProductMutation();
+    const { data: categoryData } = useGetCategoriesQuery();
     const { formData, handleChange } = useGetValue(initialState);
-    console.log(formData);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         createProduct(formData);
+
+        // formData.title = "";
+        // formData.price = "";
+        // formData.category = "";
+        // formData.description = "";
+        // formData.images = "";
     };
+
+    let categoryItems = categoryData?.map((el) => (
+        <option key={el.id} value={el.title}>
+            {el.title}
+        </option>
+    ));
 
     return (
         <div>
@@ -65,8 +79,7 @@ const CreateProduct = () => {
                             onChange={handleChange}
                         >
                             <option value="">Tanlang</option>
-                            <option value="olma">olma</option>
-                            <option value="anor">anor</option>
+                            {categoryItems}
                         </select>
                     </div>
                     <div className="createProduct__input">

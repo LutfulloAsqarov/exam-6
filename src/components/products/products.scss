@@ -1,38 +1,22 @@
 .products {
-    padding-top: 80px;
+    padding: 80px 0;
     &__cards {
         display: flex;
         gap: 24px;
         align-items: start;
         overflow: auto;
         padding-bottom: 30px;
-        &::-webkit-scrollbar {
-            width: 12px; /* Scrollbar kengligi */
-            height: 12px; /* Gorizontal scrollbar balandligi */
-        }
-
-        &::-webkit-scrollbar-track {
-            background: #f3f5f7; /* Scrollbar track backgroundi */
-            border-radius: 10px; /* Track radiusi */
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #888; /* Scrollbar thumb backgroundi */
-            border-radius: 10px; /* Thumb radiusi */
-            border: 3px solid #f3f5f7; /* Thumbning track background bilan borderi */
-        }
-
-        &::-webkit-scrollbar-thumb:hover {
-            background: #555; /* Thumbning hoverdagi backgroundi */
+        .products__card {
+            min-width: 230px;
+            width: calc(25% - 18px);
         }
     }
     &__card {
         position: relative;
-
         width: calc(25% - 18px);
 
         &__img {
-            min-width: 262px;
+            // min-width: 262px;
             height: 350px;
             background: #f3f5f7;
             position: relative;

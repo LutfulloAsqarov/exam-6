@@ -3,16 +3,35 @@
         width: 100%;
         img {
             width: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            object-position: center;
         }
     }
     &__desc {
         display: flex;
         align-items: center;
+        gap: 20px;
         h1 {
             font-size: 72px;
         }
         p {
             color: #6c7275;
+        }
+    }
+    @media (max-width: 850px) {
+        &__desc {
+            h1 {
+                font-size: 50px;
+            }
+        }
+    }
+    @media (max-width: 650px) {
+        &__desc {
+            flex-direction: column;
+            h1 {
+                font-size: 40px;
+            }
         }
     }
 }

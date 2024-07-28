@@ -7,11 +7,13 @@ import { CiShoppingCart } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import "./header.scss";
+import { IoClose } from "react-icons/io5";
+import { FaBars } from "react-icons/fa6";
 
 const Header = () => {
     let { pathname } = useLocation();
-
     const [showInput, setShowInput] = useState(false);
+    const [toggle, setToggle] = useState(false);
     if (pathname.includes("register") || pathname.includes("admin")) {
         return <></>;
     }
@@ -21,12 +23,28 @@ const Header = () => {
                 <div className="container">
                     <div className="header">
                         <div className="header__logo">
+                            <FaBars onClick={() => setToggle(true)} />
                             <Link to={"/"}>
                                 <img src={logo} alt="logo" />
                             </Link>
                         </div>
-                        <ul className="header__list">
-                            <li className="header__list__item">
+                        <ul className={`header__list ${toggle ? "show" : ""}`}>
+                            <div className="header__list__toggle">
+                                <div className="header__list__toggle-header">
+                                    <img src={logo} alt="logo" />
+                                    <IoClose onClick={() => setToggle(false)} />
+                                </div>
+                                <div className="header__list__toggle-input">
+                                    <input
+                                        type="text"
+                                        placeholder="search..."
+                                    />
+                                </div>
+                            </div>
+                            <li
+                                className="header__list__item"
+                                onClick={() => setToggle(false)}
+                            >
                                 <NavLink
                                     className={"header__list__link"}
                                     to={"/"}
@@ -34,7 +52,10 @@ const Header = () => {
                                     Home
                                 </NavLink>
                             </li>
-                            <li className="header__list__item">
+                            <li
+                                className="header__list__item"
+                                onClick={() => setToggle(false)}
+                            >
                                 <NavLink
                                     className={"header__list__link"}
                                     to={"/shop"}
@@ -42,7 +63,10 @@ const Header = () => {
                                     Shop
                                 </NavLink>
                             </li>
-                            <li className="header__list__item">
+                            <li
+                                className="header__list__item"
+                                onClick={() => setToggle(false)}
+                            >
                                 <NavLink
                                     className={"header__list__link"}
                                     to={"/blog"}
@@ -50,7 +74,10 @@ const Header = () => {
                                     Blog
                                 </NavLink>
                             </li>
-                            <li className="header__list__item">
+                            <li
+                                className="header__list__item"
+                                onClick={() => setToggle(false)}
+                            >
                                 <NavLink
                                     className={"header__list__link"}
                                     to={"/contact"}
@@ -58,7 +85,38 @@ const Header = () => {
                                     Contact Us
                                 </NavLink>
                             </li>
+                            <div className="header__list__toggle-bot">
+                                <li
+                                    className="header__list__item header__list__toggle-bot-item "
+                                    onClick={() => setToggle(false)}
+                                >
+                                    <Link to={"/order/cart"}>
+                                        Cart
+                                        <CiShoppingCart />
+                                    </Link>
+                                </li>
+                                <li
+                                    className="header__list__item  header__list__toggle-bot-item"
+                                    onClick={() => setToggle(false)}
+                                >
+                                    <Link to={"/wishlist"}>
+                                        Wishlist
+                                        <CiHeart />
+                                    </Link>
+                                </li>
+                                <button onClick={() => setToggle(false)}>
+                                    Sign In
+                                </button>
+                            </div>
                         </ul>
+                        {toggle ? (
+                            <div
+                                className="outlet"
+                                onClick={() => setToggle(false)}
+                            ></div>
+                        ) : (
+                            <></>
+                        )}
                         <div className="header__icons">
                             <form
                                 action=""
@@ -67,10 +125,13 @@ const Header = () => {
                                 <input type="text" placeholder="search..." />
                             </form>
                             <ul>
-                                <li onClick={() => setShowInput((p) => !p)}>
+                                <li
+                                    className="header__icons__item"
+                                    onClick={() => setShowInput((p) => !p)}
+                                >
                                     {showInput ? <IoMdClose /> : <CiSearch />}
                                 </li>
-                                <li>
+                                <li className="header__icons__item">
                                     <Link to={"/admin/manageProduct"}>
                                         <CiUser />
                                     </Link>
@@ -80,7 +141,7 @@ const Header = () => {
                                         <CiShoppingCart />
                                     </Link>
                                 </li>
-                                <li>
+                                <li className="header__icons__item">
                                     <Link to={"/wishlist"}>
                                         <CiHeart />
                                     </Link>

@@ -57,7 +57,6 @@ const Cart = () => {
         <>
             {cartData.length ? (
                 <div className="cart container">
-                    <h2 className="section__title">CART</h2>
                     <div className="cart__table">
                         <div className="cart__left">
                             <table>
@@ -174,9 +173,7 @@ const Cart = () => {
                                     ).toFixed(2)}
                                 </p>
                             </div>
-                            <button onClick={() => setOpenModal(true)}>
-                                Check out
-                            </button>
+                            <Link to={"/order/check"}>Check out</Link>
                         </div>
                     </div>
                     <div className="cart__shopping"></div>

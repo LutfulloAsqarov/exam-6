@@ -1,0 +1,103 @@
+import React, { useState } from "react";
+import Model from "../../../components/model/Model";
+
+import {
+    useDeleteCategoryMutation,
+    useGetCategoriesQuery,
+    useUpdateCategoryMutation,
+} from "../../../context/api/categoryApi";
+
+const ManageCategory = () => {
+    let [deleteCategory] = useDeleteCategoryMutation();
+    const [delId, setDelId] = useState(null);
+    const [editCategory, setEditCategory] = useState(null);
+    const [updateCategory] = useUpdateCategoryMutation();
+    const { data: categoryData } = useGetCategoriesQuery();
+
+    const handleUpdatedUser = (e) => {
+        e.preventDefault();
+        let updatePro = {
+            title: editCategory.title,
+        };
+        updateCategory({ body: updatePro, id: editCategory.id });
+        setEditCategory(false);
+    };
+
+    return (
+        <div className="products manageProduct">
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "30px",
+                }}
+            >
+                {categoryData?.map((el) => (
+                    <div
+                        key={el.id}
+                        className="category"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "30px",
+                        }}
+                    >
+                        <p>{el.title}</p>
+                        <div className="products__card__manage-btns">
+                            <button onClick={() => setEditCategory(el)}>
+                                Edit
+                            </button>
+                            <button onClick={() => setDelId(el.id)}>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {delId ? (
+                <Model close={setDelId} width={300}>
+                    <h2 style={{ textAlign: "center" }}>Are you sure</h2>
+                    <div style={{ display: "flex" }}>
+                        <button onClick={() => deleteCategory(delId)}>
+                            Yes
+                        </button>
+                        <button onClick={() => setDelId(null)}>No</button>
+                    </div>
+                </Model>
+            ) : (
+                <></>
+            )}
+            {editCategory ? (
+                <Model width={600} close={setEditCategory}>
+                    <form
+                        action=""
+                        className="createProduct__form"
+                        onSubmit={handleUpdatedUser}
+                    >
+                        <div className="createProduct__input">
+                            <label htmlFor="title">Category</label>
+                            <input
+                                type="text"
+                                name="title"
+                                id="title"
+                                value={editCategory.title}
+                                onChange={(e) =>
+                                    setEditCategory((prev) => ({
+                                        ...prev,
+                                        title: e.target.value,
+                                    }))
+                                }
+                            />
+                        </div>
+
+                        <button>Save</button>
+                    </form>
+                </Model>
+            ) : (
+                <></>
+            )}
+        </div>
+    );
+};
+
+export default ManageCategory;

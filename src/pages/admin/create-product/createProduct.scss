@@ -7,7 +7,8 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
-        // width: 500px;
+        width: 500px;
+        align-items: start;
     }
     &__input {
         display: flex;
@@ -25,5 +26,11 @@
             font-size: 16px;
             resize: none;
         }
+    }
+    button {
+        padding: 10px 40px;
+        background: #000;
+        color: #fff;
+        border-radius: 8px;
     }
 }

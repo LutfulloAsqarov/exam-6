@@ -7,6 +7,7 @@ import {
 import Products from "../../../components/products/Products";
 import "./manageProduct.scss";
 import Model from "../../../components/model/Model";
+import { useGetCategoriesQuery } from "../../../context/api/categoryApi";
 
 // const initialState = {
 //     title: "",
@@ -21,6 +22,7 @@ const ManageProduct = () => {
     // const [show, setShow] = useState(false);
     let { data } = useGetProductsQuery();
     const [updateProduct] = useUpdateProductMutation();
+    const { data: categoryData } = useGetCategoriesQuery();
 
     // const handleEdit = (el) => {
     //     setEditProduct(el);
@@ -31,11 +33,18 @@ const ManageProduct = () => {
         let updatePro = {
             title: editProduct.title,
             price: editProduct.price,
+            category: editProduct.category,
             description: editProduct.description,
         };
         updateProduct({ body: updatePro, id: editProduct.id });
         setEditProduct(false);
     };
+
+    let categoryItems = categoryData?.map((el) => (
+        <option key={el.id} value={el.title}>
+            {el.title}
+        </option>
+    ));
 
     return (
         <div className="products manageProduct">
@@ -99,6 +108,21 @@ const ManageProduct = () => {
                                 id="image"
                             />
                         </div> */}
+                        <div className="createProduct__input">
+                            <label htmlFor="category">Category</label>
+                            <select
+                                name="category"
+                                value={editProduct.category}
+                                onChange={(e) =>
+                                    setEditProduct((prev) => ({
+                                        ...prev,
+                                        category: e.target.value,
+                                    }))
+                                }
+                            >
+                                {categoryItems}
+                            </select>
+                        </div>
                         <div className="createProduct__input">
                             <label htmlFor="desc">Desc</label>
                             <textarea

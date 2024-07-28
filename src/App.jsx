@@ -13,6 +13,11 @@ import CreateProduct from "./pages/admin/create-product/CreateProduct";
 import ManageProduct from "./pages/admin/manage-product/ManageProduct";
 import Admin from "./pages/admin/Admin";
 import Wishlist from "./pages/wishlist/Wishlist";
+import Contact from "./pages/contact/Contact";
+import Shop from "./pages/shop/Shop";
+import Blog from "./pages/blog/Blog";
+import CreateCategory from "./pages/admin/create-category/CreateCategory";
+import ManageCategory from "./pages/admin/manage-category/ManageCategory";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -24,6 +29,9 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/products/:id" element={<SingleProduct />} />
                 <Route path="/wishlist" element={<Wishlist />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/blog" element={<Blog />} />
 
                 <Route path="/order" element={<Order />}>
                     <Route path="cart" element={<Cart />} />
@@ -33,6 +41,8 @@ function App() {
                 <Route path="/admin" element={<Admin />}>
                     <Route path="createProduct" element={<CreateProduct />} />
                     <Route path="manageProduct" element={<ManageProduct />} />
+                    <Route path="createCategory" element={<CreateCategory />} />
+                    <Route path="manageCategory" element={<ManageCategory />} />
                 </Route>
             </Routes>
 
