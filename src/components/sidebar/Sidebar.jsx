@@ -8,7 +8,7 @@ import { FaChevronCircleLeft } from "react-icons/fa";
 const Sidebar = () => {
     const navigate = useNavigate();
     const handleLogOut = () => {
-        localStorage.clear();
+        localStorage.removeItem("x-auth-token");
         navigate("/");
     };
     return (

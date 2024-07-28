@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    token: null,
-    user: null,
+    token: localStorage.getItem("x-auth-token"),
+    // user: JSON.parse(localStorage.getItem("user-data")),
 };
 
 const authSlice = createSlice({
@@ -11,17 +11,17 @@ const authSlice = createSlice({
     reducers: {
         setToken: (state, action) => {
             state.token = action.payload;
-            // localStorage.setItem("x-auth-token",  action.payload)
+            localStorage.setItem("x-auth-token", action.payload);
         },
-        setUser: (state, action) => {
-            state.user = action.payload;
-            // localStorage.setItem("user-data",  action.payload)
-        },
+        // setUser: (state, action) => {
+        //     state.user = action.payload;
+        //     localStorage.setItem("user-data", JSON.stringify(action.payload));
+        // },
         logout: (state) => {
             state.token = null;
-            state.user = null;
-            // localStorage.removeItem("x-auth-token")
-            // localStorage.removeItem("user-data")
+            // state.user = null;
+            localStorage.removeItem("x-auth-token");
+            // localStorage.removeItem("user-data");
         },
     },
 });

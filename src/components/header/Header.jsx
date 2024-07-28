@@ -21,7 +21,7 @@ const Header = () => {
         search: searchValue.trim(),
     });
     // const { formData, handleChange } = useGetValue();
-    if (pathname.includes("register") || pathname.includes("admin")) {
+    if (pathname.includes("login") || pathname.includes("admin")) {
         return <></>;
     }
     return (
@@ -169,7 +169,13 @@ const Header = () => {
                                     {showInput ? <IoMdClose /> : <CiSearch />}
                                 </li>
                                 <li className="header__icons__item">
-                                    <Link to={"/admin/manageProduct"}>
+                                    <Link
+                                        to={`${
+                                            localStorage.getItem("x-auth-token")
+                                                ? "/admin/createProduct"
+                                                : "/login"
+                                        }`}
+                                    >
                                         <CiUser />
                                     </Link>
                                 </li>

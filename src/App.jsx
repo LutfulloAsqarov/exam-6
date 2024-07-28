@@ -20,6 +20,8 @@ import CreateCategory from "./pages/admin/create-category/CreateCategory";
 import ManageCategory from "./pages/admin/manage-category/ManageCategory";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Login from "./pages/login/Login";
+import Auth from "./pages/home/auth/Auth";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -34,17 +36,32 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/login" element={<Login />} />
 
                 <Route path="/order" element={<Order />}>
                     <Route path="cart" element={<Cart />} />
                     <Route path="check" element={<Check />} />
                     <Route path="complete" element={<Complete />} />
                 </Route>
-                <Route path="/admin" element={<Admin />}>
-                    <Route path="createProduct" element={<CreateProduct />} />
-                    <Route path="manageProduct" element={<ManageProduct />} />
-                    <Route path="createCategory" element={<CreateCategory />} />
-                    <Route path="manageCategory" element={<ManageCategory />} />
+                <Route path="/" element={<Auth />}>
+                    <Route path="/admin" element={<Admin />}>
+                        <Route
+                            path="createProduct"
+                            element={<CreateProduct />}
+                        />
+                        <Route
+                            path="manageProduct"
+                            element={<ManageProduct />}
+                        />
+                        <Route
+                            path="createCategory"
+                            element={<CreateCategory />}
+                        />
+                        <Route
+                            path="manageCategory"
+                            element={<ManageCategory />}
+                        />
+                    </Route>
                 </Route>
             </Routes>
 

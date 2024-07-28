@@ -9,7 +9,7 @@ import { FaYoutube } from "react-icons/fa";
 const Footer = () => {
     let { pathname } = useLocation();
 
-    if (pathname.includes("register") || pathname.includes("admin")) {
+    if (pathname.includes("login") || pathname.includes("admin")) {
         return <></>;
     }
     return (
