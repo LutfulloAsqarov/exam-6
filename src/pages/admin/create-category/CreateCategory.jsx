@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     useCreateCategoryMutation,
     useGetCategoriesQuery,
 } from "../../../context/api/categoryApi";
 import { useGetValue } from "../../../hooks/useGetValue";
+import { toast } from "react-toastify";
 
 const initialState = {
     title: "",
 };
 
 const CreateCategory = () => {
-    const [createCategory] = useCreateCategoryMutation();
+    const [createCategory, { isSuccess, isLoading }] =
+        useCreateCategoryMutation();
     const { data: categoryData } = useGetCategoriesQuery();
     const { formData, handleChange } = useGetValue(initialState);
 
     console.log(formData);
     console.log(categoryData);
 
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success("Category Yaratildi");
+            formData.title = "";
+        }
+    }, [isSuccess]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         createCategory(formData);
-        // formData.title = "";
     };
 
     return (
@@ -42,7 +50,9 @@ const CreateCategory = () => {
                         />
                     </div>
 
-                    <button>Create</button>
+                    <button disabled={isLoading} className="create-btn">
+                        {isLoading ? "sabr..." : "Create"}
+                    </button>
                 </form>
             </div>
         </div>

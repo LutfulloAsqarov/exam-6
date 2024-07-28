@@ -19,8 +19,6 @@ const Shop = () => {
         category: categoryValue === "all" ? "" : categoryValue,
     });
 
-    console.log(categoryValue);
-
     const pageCount = Math.ceil((lengthData?.length || 0) / limit);
 
     const handleChange = (event, value) => {

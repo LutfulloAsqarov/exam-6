@@ -7,8 +7,32 @@ import { TbPhone } from "react-icons/tb";
 import { TbMail } from "react-icons/tb";
 import "./contact.scss";
 import Service from "../home/service/Service";
+import { useGetValue } from "../../hooks/useGetValue";
+
+const initialState = {
+    name: "Ali",
+    email: "ali@mail.com",
+    message: "lorem ipsum dolor",
+};
+
+const BOT_TOKEN = "7133064436:AAE11MDDY8hmQ2E7ivSYPqHku7k4Zpj-yUg";
+const CHAT_ID = "-1001658369787";
+const USER_ID = "5009656627";
 
 const Contact = () => {
+    const { formData, handleChange } = useGetValue(initialState);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let text = "User: %0A";
+        text += `Name: <b>${formData.name}</b> %0A`;
+        text += `Email: <b>${formData.email}</b> %0A`;
+        text += `Message: <b>${formData.message}</b> %0A`;
+
+        let url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${USER_ID}&text=${text}&parse_mode=html`;
+        let api = new XMLHttpRequest();
+        api.open("GET", url, true);
+        api.send();
+    };
     return (
         <div id="contact">
             <div className="container">
@@ -63,21 +87,32 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="contact__form">
-                        <form action="" className="contact__form__left">
+                        <form
+                            onSubmit={handleSubmit}
+                            className="contact__form__left"
+                        >
                             <div className="contact__form__input">
                                 <label htmlFor="fullName">Full Name</label>
                                 <input
                                     required
                                     type="text"
                                     placeholder="Your Name"
+                                    name="name"
+                                    id="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className="contact__form__input">
-                                <label htmlFor="fullName">Email Address</label>
+                                <label htmlFor="email">Email Address</label>
                                 <input
                                     required
                                     type="text"
                                     placeholder="Your Email"
+                                    name="email"
+                                    id="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className="contact__form__input">
@@ -87,6 +122,10 @@ const Contact = () => {
                                     required
                                     type="text"
                                     placeholder="Message"
+                                    name="message"
+                                    id="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <button>Send Message</button>

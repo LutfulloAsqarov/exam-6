@@ -18,6 +18,8 @@ import Shop from "./pages/shop/Shop";
 import Blog from "./pages/blog/Blog";
 import CreateCategory from "./pages/admin/create-category/CreateCategory";
 import ManageCategory from "./pages/admin/manage-category/ManageCategory";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -47,6 +49,7 @@ function App() {
             </Routes>
 
             <Footer />
+            <ToastContainer />
         </>
     );
 }

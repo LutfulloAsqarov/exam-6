@@ -9,7 +9,7 @@ import {
 
 const ManageCategory = () => {
     let [deleteCategory] = useDeleteCategoryMutation();
-    const [delId, setDelId] = useState(null);
+    const [catId, setCatId] = useState(null);
     const [editCategory, setEditCategory] = useState(null);
     const [updateCategory] = useUpdateCategoryMutation();
     const { data: categoryData } = useGetCategoriesQuery();
@@ -47,21 +47,26 @@ const ManageCategory = () => {
                             <button onClick={() => setEditCategory(el)}>
                                 Edit
                             </button>
-                            <button onClick={() => setDelId(el.id)}>
+                            <button onClick={() => setCatId(el.id)}>
                                 Delete
                             </button>
                         </div>
                     </div>
                 ))}
             </div>
-            {delId ? (
-                <Model close={setDelId} width={300}>
+            {catId ? (
+                <Model close={setCatId} width={300}>
                     <h2 style={{ textAlign: "center" }}>Are you sure</h2>
                     <div style={{ display: "flex" }}>
-                        <button onClick={() => deleteCategory(delId)}>
+                        <button
+                            onClick={() => {
+                                deleteCategory(catId);
+                                setCatId(null);
+                            }}
+                        >
                             Yes
                         </button>
-                        <button onClick={() => setDelId(null)}>No</button>
+                        <button onClick={() => setCatId(null)}>No</button>
                     </div>
                 </Model>
             ) : (
