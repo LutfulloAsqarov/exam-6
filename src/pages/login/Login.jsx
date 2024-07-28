@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./login.scss";
 import loginImg from "../../assets/login.svg";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { setToken } from "../../context/slices/authSlice";
+import { FiEye } from "react-icons/fi";
+import { FiEyeOff } from "react-icons/fi";
 
 const Login = () => {
     const [username, setUsername] = useState("john32");
     const [password, setPassword] = useState("87654321");
+    const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     if (isSuccess) {
-    //         // localStorage.setItem("x-auth-token", data.data.token)
-    //         // dispatch(setUser(data.user));
-    //         // toast.success("Successfully logged in!");
-    //     }
-    //     if (isError) {
-    //         // toast.error("Xato kiritingiz");
-    //     }
-    // }, [isSuccess, isError]);
 
     const handelSubmit = (e) => {
         e.preventDefault();
@@ -54,13 +45,16 @@ const Login = () => {
                     </div>
                     <div className="login__form__input">
                         <input
-                            type="password"
+                            type={`${showPass ? "text" : "password"}`}
                             placeholder="Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <button>
-                            <MdOutlineRemoveRedEye />
+                        <button
+                            onClick={() => setShowPass((p) => !p)}
+                            type="button"
+                        >
+                            {showPass ? <FiEyeOff /> : <FiEye />}
                         </button>
                     </div>
                     <div className="login__form__ask">
