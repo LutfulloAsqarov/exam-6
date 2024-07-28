@@ -1,5 +1,38 @@
 .products {
     padding: 80px 0;
+    .category__list {
+        display: flex;
+        align-items: center;
+        overflow: auto;
+        padding: 6px 0;
+        gap: 12px;
+        margin-bottom: 40px;
+
+        &::-webkit-scrollbar {
+            height: 0;
+            background: #e8ecef;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #343839;
+            border-radius: 80px;
+        }
+    }
+
+    .category__data {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 22px;
+        text-wrap: nowrap;
+        color: #807e7e;
+        border-bottom: 1px solid transparent;
+        cursor: pointer;
+    }
+
+    .category__data-active {
+        color: #121212;
+        border-bottom: 1px solid #121212;
+    }
     &__cards {
         display: flex;
         gap: 24px;

@@ -109,7 +109,7 @@
     }
     form {
         position: absolute;
-        right: 150px;
+        right: 165px;
         width: 0;
         opacity: 0;
         transition: 0.3s;
@@ -134,6 +134,25 @@
         height: 100vh;
         backdrop-filter: blur(2px);
         z-index: 111;
+    }
+
+    &__search {
+        position: absolute;
+        width: 100%;
+        max-height: 300px;
+        box-shadow: 0 0 10px #ddd;
+        overflow: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        &__items {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
     }
 
     @media (max-width: 800px) {
